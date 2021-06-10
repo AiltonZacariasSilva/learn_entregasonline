@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,5 +56,21 @@ public class ClienteController {
 		return ResponseEntity.ok(cliente);
 
 	}
+	
+	@DeleteMapping("/{clienteId}")
+	public ResponseEntity<Void> remover(@PathVariable Long clienteId) {
+		
+		// Não existe 404
+		if (!clienteRepository.existsById(clienteId)) {
+			return ResponseEntity.notFound().build();
+		}		
+		
+		clienteRepository.deleteById(clienteId);
+
+		// Existe 204 - Sucesso
+		return ResponseEntity.noContent().build();
+		
+	}	
+	
 
 }
