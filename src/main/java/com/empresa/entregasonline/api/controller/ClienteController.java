@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.empresa.entregasonline.api.exceptionhandler.ApiExceptionHandler;
 import com.empresa.entregasonline.domain.model.Cliente;
 import com.empresa.entregasonline.domain.service.CatalogoClienteService;
 import com.empresa.entregasonline.repository.ClienteRepository;
